@@ -1,0 +1,90 @@
+
+- Создание фигуры			  NO_SIGNAL - standart movement
+- Печать стартового положения		  LEFT - move to left
+- Приём сигнала				  RIGHT - move to right
+- Изменение положения			  DOWN - boots of shape
+- Печать				  SPACE - pause
+- Проверка столкновения с поверхностью	  ESC - stop program
+- Остановка фигуры			  ENTER - change the shape condition
+- Проверка сложенного ряда
+- Добавление очков
+- Переход на следующий уровень, анимация
+- Ускорение движения следующей фигуры
+
+- Создание фигуры
+- Печать стартового положения
+	      ...
+
+====================================================
+
++----------+--------+
+|    1     |  22    |
+|   111    |   22   |
+|          +--------+
+|	   | Lvl: 2 |
+|	   |        |
+|	   | Score  |
+|	   | 100    |
+|	   |	    |
+| 4    3   |	    |
+| 4442233  |	    |
+|111122 3  | h-help |
++----------+--------+
+
+====================================
+
+- Создание фигуры (текущее состояние)
+
+- Проверка коллизии 
+-- (Да) Новая фигура?
+--- (Да) Конец игры
+--- (Нет) Возврат к старому состоянию фигуры
+
+- Отрисовка текущего состояния
+- Сохранение состояния фигуры
+
+- Приём сигнала
+-- (Да) Обработка -> действие (изменение текущей фигуры)
+--- (LEFT) Смещение влево
+--- (RIGHT) Смещение вправо
+--- (ENTER) Поворот
+--- (ESC) Выход из игры
+--- (PAUSE) Пауза
+-- (Нет) Смещение вниз
+
+- Чистка старого состояния
+
+===================================
+
+
+Составляющие программы ТЕТРИС
+
+- интерфейс и графика (A)
+- обработка сигналов (B)
+- функции преобразования карты (C)
+- функции взаимодействия с фигурой (D)
+- игровые функции (таймеры, счёт, анимация) (E)
+
+===========================
+
+(A) void SetCur(int x, int y); 
+(A) void PrintFrame();
+(A) void SetColor(int text, int bg);
+(A) void CursorHide(); 
+
+(B) bool RecognitionInput(int key, Shape *current_s);
+
+(C) void PutShape(Shape *shape);
+(C) void OffsetDown(int border, Shape *shape);
+
+(D) void ChangeStartPoint(Shape *shape, int dx, int dy);
+(D) Shape MakeShape(char name);
+(D) char GetNameNewShape();
+(D) bool CheckColission(Shape *shape);
+(D) void ShapeRotation(Shape *shape);
+(D) void DrawShape(Shape *shape, bool draw_mode);
+
+(E) void GameOver(void);
+(E) void ScorePrinter(int score);
+
+(main) void AtExitProgram(void);

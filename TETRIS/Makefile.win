@@ -1,0 +1,43 @@
+# Project: Project_T
+# Makefile created by Dev-C++ 5.11
+
+CPP      = g++.exe
+CC       = gcc.exe
+WINDRES  = windres.exe
+OBJ      = main.o game.o interface.o input_proc.o interaction_with_shape.o map_conversion.o
+LINKOBJ  = main.o game.o interface.o input_proc.o interaction_with_shape.o map_conversion.o
+LIBS     = -L"C:/Users/Юрий/Desktop/Программирование/Dev-Cpp/MinGW64/lib" -L"C:/Users/Юрий/Desktop/Программирование/Dev-Cpp/MinGW64/x86_64-w64-mingw32/lib" -static-libgcc
+INCS     = -I"C:/Users/Юрий/Desktop/Программирование/Dev-Cpp/MinGW64/include" -I"C:/Users/Юрий/Desktop/Программирование/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Users/Юрий/Desktop/Программирование/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include"
+CXXINCS  = -I"C:/Users/Юрий/Desktop/Программирование/Dev-Cpp/MinGW64/include" -I"C:/Users/Юрий/Desktop/Программирование/Dev-Cpp/MinGW64/x86_64-w64-mingw32/include" -I"C:/Users/Юрий/Desktop/Программирование/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include" -I"C:/Users/Юрий/Desktop/Программирование/Dev-Cpp/MinGW64/lib/gcc/x86_64-w64-mingw32/4.9.2/include/c++"
+BIN      = Project_T.exe
+CXXFLAGS = $(CXXINCS) -std=c++11
+CFLAGS   = $(INCS) -std=c++11
+RM       = rm.exe -f
+
+.PHONY: all all-before all-after clean clean-custom
+
+all: all-before $(BIN) all-after
+
+clean: clean-custom
+	${RM} $(OBJ) $(BIN)
+
+$(BIN): $(OBJ)
+	$(CC) $(LINKOBJ) -o $(BIN) $(LIBS)
+
+main.o: main.c
+	$(CC) -c main.c -o main.o $(CFLAGS)
+
+game.o: game.c
+	$(CC) -c game.c -o game.o $(CFLAGS)
+
+interface.o: interface.c
+	$(CC) -c interface.c -o interface.o $(CFLAGS)
+
+input_proc.o: input_proc.c
+	$(CC) -c input_proc.c -o input_proc.o $(CFLAGS)
+
+interaction_with_shape.o: interaction_with_shape.c
+	$(CC) -c interaction_with_shape.c -o interaction_with_shape.o $(CFLAGS)
+
+map_conversion.o: map_conversion.c
+	$(CC) -c map_conversion.c -o map_conversion.o $(CFLAGS)
