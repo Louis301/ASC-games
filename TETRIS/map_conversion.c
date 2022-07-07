@@ -30,7 +30,7 @@ void PutShape(Shape *shape)
 		
 		if(row_for_remove)
 		{
-			OffsetDown(y, shape);
+			OffsetDown(y, shape);  // shape not needs!
 		}
 	}
 }

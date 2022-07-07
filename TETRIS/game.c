@@ -19,4 +19,7 @@ void ScorePrinter()
 	
 	SetCur(14, 8);
 	printf("%d", score);
+	
+	SetCur(14, 10);
+	printf("LVL %d", score / 1000 + 1);
 }
